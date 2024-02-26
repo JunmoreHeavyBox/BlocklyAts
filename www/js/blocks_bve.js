@@ -722,6 +722,54 @@ Blockly.defineBlocksWithJsonArray([
     nextStatement: null,
   },
   {
+    type: "obve_car_sound_play",
+    style: "openbve_blocks",
+    message0: "%{BKY_OBVE_CAR_SOUND_PLAY}",
+    args0: [
+      {
+        type: "field_dropdown",
+        name: "FIELD",
+        options: [
+          ["%{BKY_OBVE_SOUND_BASIC}", "Basic"],
+          ["%{BKY_OBVE_SOUND_CAR_INDEX}", "Index"],
+          // ["%{BKY_OBVE_SOUND_CAR_List}", "List"],
+        ]
+      },
+      {
+        type: "input_value",
+        name: "ID",
+        check: "Number",
+      },
+      {
+        type: "input_value",
+        name: "VOLUME",
+        check: "Number"
+      },
+      {
+        type: "input_value",
+        name: "PITCH",
+        check: "Number"
+      },
+      {
+        type: "input_value",
+        name: "LOOP",
+        check: "Boolean"
+      },
+      {
+        type: "input_value",
+        name: "CAR",
+        check: "Number"
+      },
+      /* {
+        type: "input_value",
+        name: "SETS",
+        check: "Array"
+      }, */
+    ],
+    previousStatement: null,
+    nextStatement: null,
+  },
+  {
     type: "obve_set_debug_message",
     style: "openbve_blocks",
     message0: "%{BKY_OBVE_SET_DEBUG_MESSAGE}",
