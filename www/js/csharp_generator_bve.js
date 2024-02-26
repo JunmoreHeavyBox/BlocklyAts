@@ -414,6 +414,25 @@ Blockly.CSharp.obve_sound_play=function(block){
     "C.Dbl(" + Blockly.CSharp.valueToCode(block, "PITCH", Blockly.CSharp.ORDER_NONE) + "), " +
     "C.Bool(" + Blockly.CSharp.valueToCode(block, "LOOP", Blockly.CSharp.ORDER_NONE) + "));\n";
 }
+Blockly.CSharp.obve_car_sound_play=function(block){
+  switch (block.getFieldValue("FIELD")) {
+    case "Basic":
+      return "_c.SetSoundVPL(" +
+        "C.Int(" + Blockly.CSharp.valueToCode(block, "ID", Blockly.CSharp.ORDER_NONE) + "), " +
+        "C.Dbl(" + Blockly.CSharp.valueToCode(block, "VOLUME", Blockly.CSharp.ORDER_NONE) + "), " +
+        "C.Dbl(" + Blockly.CSharp.valueToCode(block, "PITCH", Blockly.CSharp.ORDER_NONE) + "), " +
+        "C.Bool(" + Blockly.CSharp.valueToCode(block, "LOOP", Blockly.CSharp.ORDER_NONE) + "));\n";
+    case "Index":
+      return "_c.SetCarSoundVPL(" +
+        "C.Int(" + Blockly.CSharp.valueToCode(block, "ID", Blockly.CSharp.ORDER_NONE) + "), " +
+        "C.Dbl(" + Blockly.CSharp.valueToCode(block, "VOLUME", Blockly.CSharp.ORDER_NONE) + "), " +
+        "C.Dbl(" + Blockly.CSharp.valueToCode(block, "PITCH", Blockly.CSharp.ORDER_NONE) + "), " +
+        "C.Bool(" + Blockly.CSharp.valueToCode(block, "LOOP", Blockly.CSharp.ORDER_NONE) + "), " +
+        "C.Int(" + Blockly.CSharp.valueToCode(block, "CAR", Blockly.CSharp.ORDER_NONE) + "));\n";
+    /* case "List":
+      return "// _c.SetMultiCarSoundVPL" + "\n"; */
+  }
+}
 Blockly.CSharp.obve_set_debug_message=function(block){
   return "_c.EData.DebugMessage = C.Str(" + Blockly.CSharp.valueToCode(block, "MESSAGE", Blockly.CSharp.ORDER_NONE) + ");\n";
 }
