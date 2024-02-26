@@ -129,6 +129,7 @@ public class ApiProxy : IRuntime {
   public string PluginDirectory = Path.GetDirectoryName(System.Reflection.Assembly.GetExecutingAssembly().Location).TrimEnd('\\', '/');
   
   private PlaySoundDelegate playSoundDelegate;
+  private PlayCarSoundDelegate playCarSoundDelegate;
   private SoundHandle[] soundHandles = new SoundHandle[MAX_SOUND_INDEX + 1];
   // To achieve the same behavior as Win32 plugin interface at bve_get_sound_internal
   private int[] emulatedSoundState = new int[MAX_SOUND_INDEX + 1];
@@ -207,6 +208,18 @@ public class ApiProxy : IRuntime {
       soundHandles[id].Pitch = pitch / 100;
     } else {
       soundHandles[id] = playSoundDelegate(id, volume / 100, pitch / 100, loop);
+    }
+    emulatedSoundState[id] = 10000;
+  }
+  
+  public void SetCarSoundVPL(int id, double volume, double pitch, bool loop, int car) {
+    if (id < 0 || id > MAX_SOUND_INDEX) throw new IndexOutOfRangeException(MAX_SOUND_ERROR_MSG);
+    if (soundHandles[id] != null && soundHandles[id].Playing) {
+      soundHandles[id].Volume = volume / 100;
+      soundHandles[id].Pitch = pitch / 100;
+      // I wonder why failed to set the object reference to the instance of the object?
+    } else {
+        soundHandles[id] = playCarSoundDelegate(id, volume / 100, pitch / 100, loop, car);
     }
     emulatedSoundState[id] = 10000;
   }
