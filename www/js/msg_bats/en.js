@@ -178,6 +178,20 @@ Blockly.Msg["BVE_PLACEHOLDER_COMMENT"]="Comment block. Have no effect.\nInsert a
 Blockly.Msg["BVE_MSGBOX"]="msgbox %1";
 Blockly.Msg["BVE_EXCEPTION"]="show error %1";
 
+Blockly.Msg["BVE_RAWCODE_VAR_SET"]="set";
+Blockly.Msg["BVE_RAWCODE_VAR_ADDSET"]="add set";
+Blockly.Msg["BVE_RAWCODE_VAR_SUBTRACTSET"]="subtract set";
+Blockly.Msg["BVE_RAWCODE_VAR_MULTIPAYSET"]="multipay set";
+Blockly.Msg["BVE_RAWCODE_VAR_DIVIDESET"]="divide set";
+Blockly.Msg["BVE_RAWCODE_VAR_MODULOSET"]="modulo set";
+Blockly.Msg["BVE_RAWCODE_VAR_NO_CALCSELF"]="no calc self";
+Blockly.Msg["BVE_RAWCODE_VAR_ADDSELF_REAR"]="set before add self";
+Blockly.Msg["BVE_RAWCODE_VAR_ADDSELF_FRONT"]="add self before set";
+Blockly.Msg["BVE_RAWCODE_VAR_SUBTRACTSELF_REAR"]="set before subtract self";
+Blockly.Msg["BVE_RAWCODE_VAR_SUBTRACTSELF_FRONT"]="subtract self before set";
+Blockly.Msg["BVE_RAWCODE_VAR_ADDSELF"]="add self";
+Blockly.Msg["BVE_RAWCODE_VAR_SUBTRACTSELF"]="subtract self";
+
 Blockly.Msg["CAT_LOGIC"]="Logics";
 Blockly.Msg["CAT_LOOP"]="Loops";
 Blockly.Msg["CAT_MATH"]="Math";
