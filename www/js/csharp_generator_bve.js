@@ -451,3 +451,65 @@ Blockly.CSharp.bve_hat_perform_ai=function(block){
 Blockly.CSharp.bve_comment = function(block) { return ""; }
 Blockly.CSharp.bve_rawcode_statement = function(block) { return block.getFieldValue("CODE") + "\n"; }
 Blockly.CSharp.bve_rawcode_value = function(block) { return block.getFieldValue("CODE"); }
+
+Blockly.CSharp.bve_variables_set_calculation = function(block) {
+  var argument = Blockly.CSharp.valueToCode(this, "VALUE", Blockly.CSharp.ORDER_ASSIGNMENT) || "null";
+  var varName = Blockly.CSharp.valueToCode(this, "VAR", Blockly.CSharp.ORDER_ASSIGNMENT) || "null";
+  switch (block.getFieldValue("TYPE")) {
+    case "Set":
+      var operator = " = ";
+      break;
+    case "Add":
+      var operator = " += ";
+      break;
+    case "Subtract":
+      var operator = " -= ";
+      break;
+    case "Multipay":
+      var operator = " *= ";
+      break;
+    case "Divide":
+      var operator = " /= ";
+      break;
+    case "Modulo":
+      var operator = " %= ";
+      break;
+  }
+  if (block.getFieldValue("CALCSELF") != "Null") {
+    switch (block.getFieldValue("CALCSELF")) {
+      case "AddSelfRear":
+      case "AddSelfFront":
+        var calcself = "++";
+        break;
+      case "SubtractSelfRear":
+      case "SubtractSelfFront":
+        var calcself = "--";
+        break;
+    }
+    switch (block.getFieldValue("CALCSELF")) {
+      case "AddSelfRear":
+      case "SubtractSelfRear":
+        var valueOut = calcself + argument;
+        break;
+      case "AddSelfFront":
+      case "SubtractSelfFront":
+        var valueOut = argument + calcself;
+        break;
+    }
+  } else {
+    var valueOut = argument;
+  }
+  return varName + operator + valueOut + ";\n";
+}
+Blockly.CSharp.bve_variables_calcself = function(block) {
+  var varName = Blockly.CSharp.valueToCode(this, "VAR", Blockly.CSharp.ORDER_ASSIGNMENT) || "null";
+  switch (block.getFieldValue("TYPE")) {
+    case "Add":
+      var operator = " ++";
+      break;
+    case "Subtract":
+      var operator = " --";
+      break;
+  }
+  return varName + operator + ";\n";
+}
