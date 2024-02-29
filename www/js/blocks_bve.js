@@ -925,5 +925,66 @@ Blockly.defineBlocksWithJsonArray([
       }
     ],
     output: null
+  },
+  {
+    type: "bve_variables_set_calculation",
+    style: "math_blocks",
+    message0: "%1 %2 %3 %4",
+    args0: [
+      {
+        type: "input_value",
+        name: "VAR",
+      },
+      {
+        type: "field_dropdown",
+        name: "TYPE",
+        options: [
+          ["%{BKY_BVE_RAWCODE_VAR_SET}", "Set"],
+          ["%{BKY_BVE_RAWCODE_VAR_ADDSET}", "Add"],
+          ["%{BKY_BVE_RAWCODE_VAR_SUBTRACTSET}", "Subtract"],
+          ["%{BKY_BVE_RAWCODE_VAR_MULTIPAYSET}", "Multipay"],
+          ["%{BKY_BVE_RAWCODE_VAR_DIVIDESET}", "Divide"],
+          ["%{BKY_BVE_RAWCODE_VAR_MODULOSET}", "Modulo"],
+        ]
+      },
+      {
+        type: "input_value",
+        name: "VALUE",
+      },
+      {
+        type: "field_dropdown",
+        name: "CALCSELF",
+        options: [
+          ["%{BKY_BVE_RAWCODE_VAR_NO_CALCSELF}", "Null"],
+          ["%{BKY_BVE_RAWCODE_VAR_ADDSELF_REAR}", "AddSelfRear"],
+          ["%{BKY_BVE_RAWCODE_VAR_ADDSELF_FRONT}", "AddSelfFront"],
+          ["%{BKY_BVE_RAWCODE_VAR_SUBTRACTSELF_REAR}", "SubtractSelfRear"],
+          ["%{BKY_BVE_RAWCODE_VAR_SUBTRACTSELF_FRONT}", "SubtractSelfFront"],
+        ]
+      },
+    ],
+    previousStatement: null,
+    nextStatement: null,
+  },
+  {
+    type: "bve_variables_calcself",
+    style: "math_blocks",
+    message0: "%1 %2",
+    args0: [
+      {
+        type: "input_value",
+        name: "VAR",
+      },
+      {
+        type: "field_dropdown",
+        name: "TYPE",
+        options: [
+          ["%{BKY_BVE_RAWCODE_VAR_ADDSELF}", "Add"],
+          ["%{BKY_BVE_RAWCODE_VAR_SUBTRACTSELF}", "Subtract"],
+        ]
+      },
+    ],
+    previousStatement: null,
+    nextStatement: null,
   }
 ]);
