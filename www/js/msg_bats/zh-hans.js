@@ -178,6 +178,20 @@ Blockly.Msg["BVE_PLACEHOLDER_COMMENT"]="注释块。无任何效果。\n放在�
 Blockly.Msg["BVE_MSGBOX"]="弹窗 %1";
 Blockly.Msg["BVE_EXCEPTION"]="显示错误 %1";
 
+Blockly.Msg["BVE_RAWCODE_VAR_SET"]="赋值";
+Blockly.Msg["BVE_RAWCODE_VAR_ADDSET"]="加赋值";
+Blockly.Msg["BVE_RAWCODE_VAR_SUBTRACTSET"]="减赋值";
+Blockly.Msg["BVE_RAWCODE_VAR_MULTIPAYSET"]="乘赋值";
+Blockly.Msg["BVE_RAWCODE_VAR_DIVIDESET"]="除赋值";
+Blockly.Msg["BVE_RAWCODE_VAR_MODULOSET"]="取模赋值";
+Blockly.Msg["BVE_RAWCODE_VAR_NO_CALCSELF"]="不自算";
+Blockly.Msg["BVE_RAWCODE_VAR_ADDSELF_REAR"]="赋值后自增";
+Blockly.Msg["BVE_RAWCODE_VAR_ADDSELF_FRONT"]="赋值前自增";
+Blockly.Msg["BVE_RAWCODE_VAR_SUBTRACTSELF_REAR"]="赋值后自减";
+Blockly.Msg["BVE_RAWCODE_VAR_SUBTRACTSELF_FRONT"]="赋值前自减";
+Blockly.Msg["BVE_RAWCODE_VAR_ADDSELF"]="自增";
+Blockly.Msg["BVE_RAWCODE_VAR_SUBTRACTSELF"]="自减";
+
 Blockly.Msg["CAT_LOGIC"]="逻辑";
 Blockly.Msg["CAT_LOOP"]="循环";
 Blockly.Msg["CAT_MATH"]="数学";
