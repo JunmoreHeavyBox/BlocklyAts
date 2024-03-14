@@ -808,97 +808,97 @@ Blockly.defineBlocksWithJsonArray([
         ]
       },
       {
-        类型:"字段编号",
-        姓名:"持续时间",
+        type: "field_number",
+        name: "DURATION",
       },
     ],
-    previousStatement:无效的,
-    nextStatement:无效的,
+    previousStatement: null,
+    nextStatement: null,
   },
   {
-    类型:"bve_hat_door_change_any",
-    风格:"openbve_blocks",
-    消息0:"%{BKY_OBVE_DOOR_CHANGE_ANY}",
-    nextStatement:无效的,
+    type: "bve_hat_door_change_any",
+    style: "openbve_blocks",
+    message0: "%{BKY_OBVE_DOOR_CHANGE_ANY}",
+    nextStatement: null,
   },
   {
-    类型:"bve_hat_perform_ai",
-    风格:"openbve_blocks",
-    消息0:"%{BKY_OBVE_PERFORM_AI}",
-    nextStatement:无效的,
+    type: "bve_hat_perform_ai",
+    style: "openbve_blocks",
+    message0: "%{BKY_OBVE_PERFORM_AI}",
+    nextStatement: null,
   },
   {
-    类型:"obve_ai_set_handle",
-    风格:"comment_block",
-    消息0:"%{BKY_OBVE_AI_SET_HANDLE}",
-    args0:[
+    type: "obve_ai_set_handle",
+    style: "comment_block",
+    message0: "%{BKY_OBVE_AI_SET_HANDLE}",
+    args0: [
       {
-        类型:"field_dropdown",
-        姓名:"FIELD_SEL",
-        选项:[
-          ["%{BKY_BVE_HND_BRAKE}","制动器"],
-          ["%{BKY_BVE_HND_POWER}","电源"],
-          ["%{BKY_BVE_HND_reverser}","反向器"],
+        type: "field_dropdown",
+        name: "FIELD_SEL",
+        options: [
+          ["%{BKY_BVE_HND_BRAKE}", "Brake"],
+          ["%{BKY_BVE_HND_POWER}", "Power"],
+          ["%{BKY_BVE_HND_REVERSER}", "Reverser"],
         ],
       },
       {
-        类型:"field_dropdown",
-        姓名:"类型",
-        选项:[
-          ["%{BKY_BVE_VARIABLES_ADDSET}","添加"],
-          ["%{BKY_BVE_VARIBLES_SUBTRACTSET}","减去"],
+        type: "field_dropdown",
+        name: "TYPE",
+        options: [
+          ["%{BKY_BVE_VARIABLES_ADDSET}", "Add"],
+          ["%{BKY_BVE_VARIABLES_SUBTRACTSET}", "Subtract"],
         ]
       },
     ],
-    previousStatement:无效的,
-    nextStatement:无效的,
+    previousStatement: null,
+    nextStatement: null,
   },
   {
-    类型:"obve_ai_updown_key",
-    风格:"comment_block",
-    消息0:"%{BKY_OBVE_AI_updown_KEY}",
-    args0:[
+    type: "obve_ai_updown_key",
+    style: "comment_block",
+    message0: "%{BKY_OBVE_AI_UPDOWN_KEY}",
+    args0: [
       {
-        类型:"field_dropdown",
-        姓名:"类型",
-        选项:[
-          ["%{BKY_OBVE_AI_updown_KEY_DOWN}","向下"],
-          ["%{BKY_OBVE_AI_updown_KEY_UP}","向上"],
+        type: "field_dropdown",
+        name: "TYPE",
+        options: [
+          ["%{BKY_OBVE_AI_UPDOWN_KEY_DOWN}", "Down"],
+          ["%{BKY_OBVE_AI_UPDOWN_KEY_UP}", "Up"],
         ]
       },
       {
-        类型:"input_value",
-        姓名:"KEY_TYPE",
-        检查:"数字"
+        type: "input_value",
+        name: "KEY_TYPE",
+        check: "Number"
       }
     ],
-    previousStatement:无效的,
-    nextStatement:无效的,
+    previousStatement: null,
+    nextStatement: null,
   },
   {
-    类型:"obve_ai_response",
-    风格:"comment_block",
-    消息0:"%{BKY_OBVE_AI_RESPONSE}",
-    args0:[
+    type: "obve_ai_response",
+    style: "comment_block",
+    message0: "%{BKY_OBVE_AI_RESPONSE}",
+    args0: [
       {
-        类型:"input_value",
-        姓名:"值",
-        检查:"数字",
+        type: "input_value",
+        name: "VALUE",
+        check: "Number",
       }
     ],
-    previousStatement:无效的,
-    nextStatement:无效的,
+    previousStatement: null,
+    nextStatement: null,
   },
   {
-    类型:"obve_ai_response_time",
-    风格:"comment_block",
-    消息0:"%{BKY_OBVE_AI_RESPONSE_TIME}",
-    args0:[
+    type: "obve_ai_response_time",
+    style: "comment_block",
+    message0: "%{BKY_OBVE_AI_RESPONSE_TIME}",
+    args0: [
       {
-        类型:"field_dropdown",
-        姓名:"时间",
-        选项:[
-          ["%{BKY_OBVE_AI_RESPONSE_TIME_NONE}","无"],
+        type: "field_dropdown",
+        name: "TIME",
+        options: [
+          ["%{BKY_OBVE_AI_RESPONSE_TIME_NONE}", "None"],
           ["%{BKY_OBVE_AI_RESPONSE_TIME_SHORT}", "Short"],
           ["%{BKY_OBVE_AI_RESPONSE_TIME_MEDIUM}", "Medium"],
           ["%{BKY_OBVE_AI_RESPONSE_TIME_LONG}", "Long"],
@@ -906,7 +906,7 @@ Blockly.defineBlocksWithJsonArray([
       },
     ],
     output: "Number",
-}  },
+  },
 
   // Category: Conversions & Misc
   {
