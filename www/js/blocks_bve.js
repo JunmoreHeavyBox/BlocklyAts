@@ -808,25 +808,105 @@ Blockly.defineBlocksWithJsonArray([
         ]
       },
       {
-        type: "field_number",
-        name: "DURATION",
+        类型:"字段编号",
+        姓名:"持续时间",
       },
     ],
-    previousStatement: null,
-    nextStatement: null,
+    previousStatement:无效的,
+    nextStatement:无效的,
   },
   {
-    type: "bve_hat_door_change_any",
-    style: "openbve_blocks",
-    message0: "%{BKY_OBVE_DOOR_CHANGE_ANY}",
-    nextStatement: null,
+    类型:"bve_hat_door_change_any",
+    风格:"openbve_blocks",
+    消息0:"%{BKY_OBVE_DOOR_CHANGE_ANY}",
+    nextStatement:无效的,
   },
   {
-    type: "bve_hat_perform_ai",
-    style: "openbve_blocks",
-    message0: "%{BKY_OBVE_PERFORM_AI}",
-    nextStatement: null,
+    类型:"bve_hat_perform_ai",
+    风格:"openbve_blocks",
+    消息0:"%{BKY_OBVE_PERFORM_AI}",
+    nextStatement:无效的,
   },
+  {
+    类型:"obve_ai_set_handle",
+    风格:"comment_block",
+    消息0:"%{BKY_OBVE_AI_SET_HANDLE}",
+    args0:[
+      {
+        类型:"field_dropdown",
+        姓名:"FIELD_SEL",
+        选项:[
+          ["%{BKY_BVE_HND_BRAKE}","制动器"],
+          ["%{BKY_BVE_HND_POWER}","电源"],
+          ["%{BKY_BVE_HND_reverser}","反向器"],
+        ],
+      },
+      {
+        类型:"field_dropdown",
+        姓名:"类型",
+        选项:[
+          ["%{BKY_BVE_VARIABLES_ADDSET}","添加"],
+          ["%{BKY_BVE_VARIBLES_SUBTRACTSET}","减去"],
+        ]
+      },
+    ],
+    previousStatement:无效的,
+    nextStatement:无效的,
+  },
+  {
+    类型:"obve_ai_updown_key",
+    风格:"comment_block",
+    消息0:"%{BKY_OBVE_AI_updown_KEY}",
+    args0:[
+      {
+        类型:"field_dropdown",
+        姓名:"类型",
+        选项:[
+          ["%{BKY_OBVE_AI_updown_KEY_DOWN}","向下"],
+          ["%{BKY_OBVE_AI_updown_KEY_UP}","向上"],
+        ]
+      },
+      {
+        类型:"input_value",
+        姓名:"KEY_TYPE",
+        检查:"数字"
+      }
+    ],
+    previousStatement:无效的,
+    nextStatement:无效的,
+  },
+  {
+    类型:"obve_ai_response",
+    风格:"comment_block",
+    消息0:"%{BKY_OBVE_AI_RESPONSE}",
+    args0:[
+      {
+        类型:"input_value",
+        姓名:"值",
+        检查:"数字",
+      }
+    ],
+    previousStatement:无效的,
+    nextStatement:无效的,
+  },
+  {
+    类型:"obve_ai_response_time",
+    风格:"comment_block",
+    消息0:"%{BKY_OBVE_AI_RESPONSE_TIME}",
+    args0:[
+      {
+        类型:"field_dropdown",
+        姓名:"时间",
+        选项:[
+          ["%{BKY_OBVE_AI_RESPONSE_TIME_NONE}","无"],
+          ["%{BKY_OBVE_AI_RESPONSE_TIME_SHORT}", "Short"],
+          ["%{BKY_OBVE_AI_RESPONSE_TIME_MEDIUM}", "Medium"],
+          ["%{BKY_OBVE_AI_RESPONSE_TIME_LONG}", "Long"],
+        ],
+      },
+    ],
+    output: "Number",
+}  },
 
   // Category: Conversions & Misc
   {
@@ -932,35 +1012,35 @@ Blockly.defineBlocksWithJsonArray([
     message0: "%1 %2 %3 %4",
     args0: [
       {
+        type: "field_dropdown",
+        name: "TYPE",
+        options: [
+          ["%{BKY_BVE_VARIABLES_SET}", "Set"],
+          ["%{BKY_BVE_VARIABLES_ADDSET}", "Add"],
+          ["%{BKY_BVE_VARIABLES_SUBTRACTSET}", "Subtract"],
+          ["%{BKY_BVE_VARIABLES_MULTIPAYSET}", "Multipay"],
+          ["%{BKY_BVE_VARIABLES_DIVIDESET}", "Divide"],
+          ["%{BKY_BVE_VARIABLES_MODULOSET}", "Modulo"],
+        ]
+      },
+      {
         type: "input_value",
         name: "VAR",
       },
       {
         type: "field_dropdown",
-        name: "TYPE",
+        name: "CALCSELF",
         options: [
-          ["%{BKY_BVE_RAWCODE_VAR_SET}", "Set"],
-          ["%{BKY_BVE_RAWCODE_VAR_ADDSET}", "Add"],
-          ["%{BKY_BVE_RAWCODE_VAR_SUBTRACTSET}", "Subtract"],
-          ["%{BKY_BVE_RAWCODE_VAR_MULTIPAYSET}", "Multipay"],
-          ["%{BKY_BVE_RAWCODE_VAR_DIVIDESET}", "Divide"],
-          ["%{BKY_BVE_RAWCODE_VAR_MODULOSET}", "Modulo"],
+          ["%{BKY_BVE_VARIABLES_NO_CALCSELF}", "Null"],
+          ["%{BKY_BVE_VARIABLES_ADDSELF_REAR}", "AddSelfRear"],
+          ["%{BKY_BVE_VARIABLES_ADDSELF_FRONT}", "AddSelfFront"],
+          ["%{BKY_BVE_VARIABLES_SUBTRACTSELF_REAR}", "SubtractSelfRear"],
+          ["%{BKY_BVE_VARIABLES_SUBTRACTSELF_FRONT}", "SubtractSelfFront"],
         ]
       },
       {
         type: "input_value",
         name: "VALUE",
-      },
-      {
-        type: "field_dropdown",
-        name: "CALCSELF",
-        options: [
-          ["%{BKY_BVE_RAWCODE_VAR_NO_CALCSELF}", "Null"],
-          ["%{BKY_BVE_RAWCODE_VAR_ADDSELF_REAR}", "AddSelfRear"],
-          ["%{BKY_BVE_RAWCODE_VAR_ADDSELF_FRONT}", "AddSelfFront"],
-          ["%{BKY_BVE_RAWCODE_VAR_SUBTRACTSELF_REAR}", "SubtractSelfRear"],
-          ["%{BKY_BVE_RAWCODE_VAR_SUBTRACTSELF_FRONT}", "SubtractSelfFront"],
-        ]
       },
     ],
     previousStatement: null,
@@ -972,16 +1052,16 @@ Blockly.defineBlocksWithJsonArray([
     message0: "%1 %2",
     args0: [
       {
-        type: "input_value",
-        name: "VAR",
-      },
-      {
         type: "field_dropdown",
         name: "TYPE",
         options: [
-          ["%{BKY_BVE_RAWCODE_VAR_ADDSELF}", "Add"],
-          ["%{BKY_BVE_RAWCODE_VAR_SUBTRACTSELF}", "Subtract"],
+          ["%{BKY_BVE_VARIABLES_ADDSELF}", "Add"],
+          ["%{BKY_BVE_VARIABLES_SUBTRACTSELF}", "Subtract"],
         ]
+      },
+      {
+        type: "input_value",
+        name: "VAR",
       },
     ],
     previousStatement: null,
