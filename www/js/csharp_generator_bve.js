@@ -447,6 +447,45 @@ Blockly.CSharp.bve_hat_perform_ai=function(block){
   return "public void PerformAI() {\n";
 }
 
+Blockly.CSharp.obve_ai_set_handle=function(block){
+  switch (block.getFieldValue("FIELD_SEL")) {
+    case "Brake":
+      var handleType = "BrakeNotch";
+      break;
+    case "Power":
+      var handleType = "PowerNotch";
+      break;
+    case "Reverser":
+      var handleType = "Reverser";
+      break;
+  }
+  switch (block.getFieldValue("TYPE")) {
+    case "Add":
+      var operator = " += 1";
+      break;
+    case "Subtract":
+      var operator = " -= 1";
+      break;
+  }
+  return "// _p1.Handles." + handleType + operator + ";\n";
+}
+Blockly.CSharp.obve_ai_updown_key=function(block){
+  switch (block.getFieldValue("TYPE")) {
+    case "Down":
+      var keyFunc = "KeyDown";
+      break;
+    case "Up":
+      var keyFunc = "KeyUp";
+      break;
+  }
+  return "// " + keyFunc + "(C.Int(" + Blockly.CSharp.valueToCode(block, "KEY_TYPE", Blockly.CSharp.ORDER_NONE) + "));\n";
+}
+Blockly.CSharp.obve_ai_response=function(block){
+  return "// _p1.Response = " + Blockly.CSharp.valueToCode(block, "VALUE", Blockly.CSharp.ORDER_NONE) + ";\n";
+}
+Blockly.CSharp.obve_ai_response_time=function(block){
+  return ["AIResponse." + block.getFieldValue("TIME"), Blockly.CSharp.ORDER_MEMBER];
+}
 
 Blockly.CSharp.bve_comment = function(block) { return ""; }
 Blockly.CSharp.bve_rawcode_statement = function(block) { return block.getFieldValue("CODE") + "\n"; }
