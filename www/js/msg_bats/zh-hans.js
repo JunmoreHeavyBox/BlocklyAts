@@ -190,19 +190,20 @@ Blockly.Msg["BVE_PLACEHOLDER_COMMENT"]="注释块。无任何效果。\n放在�
 Blockly.Msg["BVE_MSGBOX"]="弹窗 %1";
 Blockly.Msg["BVE_EXCEPTION"]="显示错误 %1";
 
+Blockly.Msg["BVE_VARIABLES"]="%1 %2 为 %3 %4";
 Blockly.Msg["BVE_VARIABLES_SET"]="赋值";
 Blockly.Msg["BVE_VARIABLES_ADDSET"]="加赋值";
 Blockly.Msg["BVE_VARIABLES_SUBTRACTSET"]="减赋值";
 Blockly.Msg["BVE_VARIABLES_MULTIPAYSET"]="乘赋值";
 Blockly.Msg["BVE_VARIABLES_DIVIDESET"]="除赋值";
 Blockly.Msg["BVE_VARIABLES_MODULOSET"]="取模赋值";
-Blockly.Msg["BVE_VARIABLES_NO_CALCSELF"]="为";
-Blockly.Msg["BVE_VARIABLES_ADDSELF_REAR"]="后自增";
-Blockly.Msg["BVE_VARIABLES_ADDSELF_FRONT"]="前自增";
-Blockly.Msg["BVE_VARIABLES_SUBTRACTSELF_REAR"]="后自减";
-Blockly.Msg["BVE_VARIABLES_SUBTRACTSELF_FRONT"]="前自减";
-Blockly.Msg["BVE_VARIABLES_ADDSELF"]="自增";
-Blockly.Msg["BVE_VARIABLES_SUBTRACTSELF"]="自减";
+Blockly.Msg["BVE_VARIABLES_SETONLY"]="一般";
+Blockly.Msg["BVE_VARIABLES_PRE_INCREMENT"]="前自增";
+Blockly.Msg["BVE_VARIABLES_PRE_DECREMENT"]="前自减";
+Blockly.Msg["BVE_VARIABLES_POST_INCREMENT"]="后自增";
+Blockly.Msg["BVE_VARIABLES_POST_DECREMENT"]="后自减";
+Blockly.Msg["BVE_VARIABLES_SELF_INCREMENT"]="自增";
+Blockly.Msg["BVE_VARIABLES_SELF_DECREMENT"]="自减";
 
 Blockly.Msg["CAT_LOGIC"]="逻辑";
 Blockly.Msg["CAT_LOOP"]="循环";
