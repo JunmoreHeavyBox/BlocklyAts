@@ -190,19 +190,20 @@ Blockly.Msg["BVE_PLACEHOLDER_COMMENT"]="Comment block. Have no effect.\nInsert a
 Blockly.Msg["BVE_MSGBOX"]="msgbox %1";
 Blockly.Msg["BVE_EXCEPTION"]="show error %1";
 
+Blockly.Msg["BVE_VARIABLES"]="%1 %2 to %3 %4";
 Blockly.Msg["BVE_VARIABLES_SET"]="set";
 Blockly.Msg["BVE_VARIABLES_ADDSET"]="add set";
 Blockly.Msg["BVE_VARIABLES_SUBTRACTSET"]="subtract set";
 Blockly.Msg["BVE_VARIABLES_MULTIPAYSET"]="multipay set";
 Blockly.Msg["BVE_VARIABLES_DIVIDESET"]="divide set";
 Blockly.Msg["BVE_VARIABLES_MODULOSET"]="modulo set";
-Blockly.Msg["BVE_VARIABLES_NO_CALCSELF"]="to";
-Blockly.Msg["BVE_VARIABLES_ADDSELF_REAR"]="before add self";
-Blockly.Msg["BVE_VARIABLES_ADDSELF_FRONT"]="after add self";
-Blockly.Msg["BVE_VARIABLES_SUBTRACTSELF_REAR"]="before subtract self";
-Blockly.Msg["BVE_VARIABLES_SUBTRACTSELF_FRONT"]="after subtract self";
-Blockly.Msg["BVE_VARIABLES_ADDSELF"]="add self";
-Blockly.Msg["BVE_VARIABLES_SUBTRACTSELF"]="subtract self";
+Blockly.Msg["BVE_VARIABLES_SETONLY"]="only";
+Blockly.Msg["BVE_VARIABLES_PRE_INCREMENT"]="before increment";
+Blockly.Msg["BVE_VARIABLES_PRE_DECREMENT"]="before decrement";
+Blockly.Msg["BVE_VARIABLES_POST_INCREMENT"]="after increment";
+Blockly.Msg["BVE_VARIABLES_POST_DECREMENT"]="after decrement";
+Blockly.Msg["BVE_VARIABLES_SELF_INCREMENT"]="self increment";
+Blockly.Msg["BVE_VARIABLES_SELF_DECREMENT"]="self decrement";
 
 Blockly.Msg["CAT_LOGIC"]="Logics";
 Blockly.Msg["CAT_LOOP"]="Loops";
