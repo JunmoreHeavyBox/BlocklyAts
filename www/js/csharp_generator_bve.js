@@ -514,25 +514,25 @@ Blockly.CSharp.bve_variables_set_calculation = function(block) {
       var operator = " %= ";
       break;
   }
-  if (block.getFieldValue("CALCSELF") != "Null") {
-    switch (block.getFieldValue("CALCSELF")) {
-      case "AddSelfRear":
-      case "AddSelfFront":
-        var calcself = "++";
+  if (block.getFieldValue("CREMENT") != "Null") {
+    switch (block.getFieldValue("CREMENT")) {
+      case "PreIncrement":
+      case "PostIncrement":
+        var crement = "++";
         break;
-      case "SubtractSelfRear":
-      case "SubtractSelfFront":
-        var calcself = "--";
+      case "PreDecrement":
+      case "PostDecrement":
+        var crement = "--";
         break;
     }
-    switch (block.getFieldValue("CALCSELF")) {
-      case "AddSelfRear":
-      case "SubtractSelfRear":
-        var valueOut = calcself + argument;
+    switch (block.getFieldValue("CREMENT")) {
+      case "PreIncrement":
+      case "PreDecrement":
+        var valueOut = crement + argument;
         break;
-      case "AddSelfFront":
-      case "SubtractSelfFront":
-        var valueOut = argument + calcself;
+      case "PostIncrement":
+      case "PostDecrement":
+        var valueOut = argument + crement;
         break;
     }
   } else {
@@ -543,10 +543,10 @@ Blockly.CSharp.bve_variables_set_calculation = function(block) {
 Blockly.CSharp.bve_variables_calcself = function(block) {
   var varName = Blockly.CSharp.valueToCode(this, "VAR", Blockly.CSharp.ORDER_ASSIGNMENT) || "null";
   switch (block.getFieldValue("TYPE")) {
-    case "Add":
+    case "Increment":
       var operator = " ++";
       break;
-    case "Subtract":
+    case "Decrement":
       var operator = " --";
       break;
   }
