@@ -1009,7 +1009,7 @@ Blockly.defineBlocksWithJsonArray([
   {
     type: "bve_variables_set_calculation",
     style: "math_blocks",
-    message0: "%1 %2 %3 %4",
+    message0: "%{BKY_BVE_VARIABLES}",
     args0: [
       {
         type: "field_dropdown",
@@ -1028,19 +1028,19 @@ Blockly.defineBlocksWithJsonArray([
         name: "VAR",
       },
       {
-        type: "field_dropdown",
-        name: "CALCSELF",
-        options: [
-          ["%{BKY_BVE_VARIABLES_NO_CALCSELF}", "Null"],
-          ["%{BKY_BVE_VARIABLES_ADDSELF_REAR}", "AddSelfRear"],
-          ["%{BKY_BVE_VARIABLES_ADDSELF_FRONT}", "AddSelfFront"],
-          ["%{BKY_BVE_VARIABLES_SUBTRACTSELF_REAR}", "SubtractSelfRear"],
-          ["%{BKY_BVE_VARIABLES_SUBTRACTSELF_FRONT}", "SubtractSelfFront"],
-        ]
-      },
-      {
         type: "input_value",
         name: "VALUE",
+      },
+      {
+        type: "field_dropdown",
+        name: "CREMENT",
+        options: [
+          ["%{BKY_BVE_VARIABLES_SETONLY}", "Null"],
+          ["%{BKY_BVE_VARIABLES_PRE_INCREMENT}", "PreIncrement"],
+          ["%{BKY_BVE_VARIABLES_PRE_DECREMENT}", "PreDecrement"],
+          ["%{BKY_BVE_VARIABLES_POST_INCREMENT}", "PostIncrement"],
+          ["%{BKY_BVE_VARIABLES_POST_DECREMENT}", "PostDecrement"],
+        ]
       },
     ],
     previousStatement: null,
@@ -1055,8 +1055,8 @@ Blockly.defineBlocksWithJsonArray([
         type: "field_dropdown",
         name: "TYPE",
         options: [
-          ["%{BKY_BVE_VARIABLES_ADDSELF}", "Add"],
-          ["%{BKY_BVE_VARIABLES_SUBTRACTSELF}", "Subtract"],
+          ["%{BKY_BVE_VARIABLES_SELF_INCREMENT}", "Increment"],
+          ["%{BKY_BVE_VARIABLES_SELF_DECREMENT}", "Decrement"],
         ]
       },
       {
