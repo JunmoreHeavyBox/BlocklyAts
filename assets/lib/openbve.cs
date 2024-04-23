@@ -16,6 +16,8 @@ public class ApiProxy : IRuntime {
   public bool Load(LoadProperties _p1) {
     LProp = _p1;
     playSoundDelegate = _p1.PlaySound;
+    playCarSoundDelegate = _p1.PlayCarSound;
+    playMultipleCarSoundDelegate = _p1.PlayMultipleCarSound;
     _p1.Panel = Panel;
     for (int i = 0; i < 256; i++) emulatedSoundState[i] = -10000;
     
@@ -217,7 +219,6 @@ public class ApiProxy : IRuntime {
     if (soundHandles[id] != null && soundHandles[id].Playing) {
       soundHandles[id].Volume = volume / 100;
       soundHandles[id].Pitch = pitch / 100;
-      // I wonder why failed to set the object reference to the instance of the object?
     } else {
         soundHandles[id] = playCarSoundDelegate(id, volume / 100, pitch / 100, loop, car);
     }
