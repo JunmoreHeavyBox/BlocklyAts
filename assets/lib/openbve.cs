@@ -17,7 +17,7 @@ public class ApiProxy : IRuntime {
     LProp = _p1;
     playSoundDelegate = _p1.PlaySound;
     playCarSoundDelegate = _p1.PlayCarSound;
-    playMultipleCarSoundDelegate = _p1.PlayMultipleCarSound;
+    // playMultipleCarSoundDelegate = _p1.PlayMultipleCarSound;
     _p1.Panel = Panel;
     for (int i = 0; i < 256; i++) emulatedSoundState[i] = -10000;
     
@@ -132,6 +132,7 @@ public class ApiProxy : IRuntime {
   
   private PlaySoundDelegate playSoundDelegate;
   private PlayCarSoundDelegate playCarSoundDelegate;
+  // private PlayMultipleCarSoundDelegate playMultipleCarSoundDelegate;
   private SoundHandle[] soundHandles = new SoundHandle[MAX_SOUND_INDEX + 1];
   // To achieve the same behavior as Win32 plugin interface at bve_get_sound_internal
   private int[] emulatedSoundState = new int[MAX_SOUND_INDEX + 1];
