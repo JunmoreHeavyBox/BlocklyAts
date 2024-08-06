@@ -209,8 +209,11 @@ Blockly.CSharp.bve_location=function(block){
 Blockly.CSharp.bve_speed=function(block){
   return ["_c.EData_Vehicle_Speed", Blockly.CSharp.ORDER_MEMBER];
 }
-Blockly.CSharp.bve_time=function(block){
+Blockly.CSharp.bve_totaltime=function(block){
   return ["_c.EData_TotalTime", Blockly.CSharp.ORDER_MEMBER];
+}
+Blockly.CSharp.bve_elapsedtime=function(block){
+  return ["_c.EData_ElapsedTime", Blockly.CSharp.ORDER_MEMBER];
 }
 Blockly.CSharp.bve_vehicle_state=function(block){
   return ["_c.EData_Vehicle_" + block.getFieldValue("FIELD_SEL"), Blockly.CSharp.ORDER_MEMBER];
