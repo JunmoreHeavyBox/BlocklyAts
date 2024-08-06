@@ -95,9 +95,15 @@ Blockly.defineBlocksWithJsonArray([
     output: "Number",
   },
   {
-    type: "bve_time",
+    type: "bve_totaltime",
     style: "bve_blocks",
-    message0: "%{BKY_BVE_TIME}",
+    message0: "%{BKY_BVE_TOTALTIME}",
+    output: "Number",
+  },
+  {
+    type: "bve_elapsedtime",
+    style: "bve_blocks",
+    message0: "%{BKY_BVE_ELAPSEDTIME}",
     output: "Number",
   },
   {
