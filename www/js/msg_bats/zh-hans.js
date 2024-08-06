@@ -45,7 +45,8 @@ Blockly.Msg["BVE_VSPEC_CAR"]="编组长度";
 
 Blockly.Msg["BVE_LOCATION"]="位置/m";
 Blockly.Msg["BVE_SPEED"]="速度/kmph"
-Blockly.Msg["BVE_TIME"]="时间/ms";
+Blockly.Msg["BVE_TOTALTIME"]="时间/ms";
+Blockly.Msg["BVE_ELAPSEDTIME"]="每帧时间差";
 
 Blockly.Msg["BVE_VEHICLE_STATE"]="当前 %1";
 Blockly.Msg["BVE_VSTATE_BC"]="制动风缸压力/Pa";
