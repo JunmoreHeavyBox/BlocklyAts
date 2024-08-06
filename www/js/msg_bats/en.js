@@ -45,7 +45,8 @@ Blockly.Msg["BVE_VSPEC_CAR"]="consist length";
 
 Blockly.Msg["BVE_LOCATION"]="location/m";
 Blockly.Msg["BVE_SPEED"]="speed/kmph"
-Blockly.Msg["BVE_TIME"]="time/00:00+ms";
+Blockly.Msg["BVE_TOTALTIME"]="time/00:00+ms";
+Blockly.Msg["BVE_ELAPSEDTIME"]="elapsed time";
 
 Blockly.Msg["BVE_VEHICLE_STATE"]="current %1";
 Blockly.Msg["BVE_VSTATE_BC"]="brake cylinder press/pa";
