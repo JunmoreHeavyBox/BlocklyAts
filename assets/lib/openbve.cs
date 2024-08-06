@@ -71,7 +71,7 @@ public class ApiProxy : IRuntime {
   
   public int VSpec_PowerNotches, VSpec_BrakeNotches, VSpec_AtsNotch, VSpec_B67Notch, VSpec_Cars;
   public int EData_Handles_Reverser, EData_Handles_PowerNotch, EData_Handles_BrakeNotch, EData_Handles_ConstSpeed;
-  public double EData_Vehicle_Location, EData_Vehicle_Speed, EData_TotalTime;
+  public double EData_Vehicle_Location, EData_Vehicle_Speed, EData_TotalTime, EData_ElapsedTime;
   public double EData_Vehicle_BcPressure, EData_Vehicle_MrPressure, EData_Vehicle_ErPressure, EData_Vehicle_BpPressure, EData_Vehicle_SapPressure, EData_Vehicle_Current;
   
   public LoadProperties LProp;
@@ -99,6 +99,7 @@ public class ApiProxy : IRuntime {
       EData_Vehicle_Location = value.Vehicle.Location;
       EData_Vehicle_Speed = value.Vehicle.Speed.KilometersPerHour;
       EData_TotalTime = value.TotalTime.Milliseconds;
+      EData_ElapsedTime = value.ElapsedTime.Seconds;
       EData_Vehicle_BcPressure = value.Vehicle.BcPressure;
       EData_Vehicle_MrPressure = value.Vehicle.MrPressure;
       EData_Vehicle_ErPressure = value.Vehicle.ErPressure;
