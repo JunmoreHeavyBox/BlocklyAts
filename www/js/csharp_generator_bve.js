@@ -418,23 +418,22 @@ Blockly.CSharp.obve_sound_play=function(block){
     "C.Bool(" + Blockly.CSharp.valueToCode(block, "LOOP", Blockly.CSharp.ORDER_NONE) + "));\n";
 }
 Blockly.CSharp.obve_car_sound_play=function(block){
+  var soundVPL = 
+    "C.Int(" + Blockly.CSharp.valueToCode(block, "ID", Blockly.CSharp.ORDER_NONE) + "), " +
+    "C.Dbl(" + Blockly.CSharp.valueToCode(block, "VOLUME", Blockly.CSharp.ORDER_NONE) + "), " +
+    "C.Dbl(" + Blockly.CSharp.valueToCode(block, "PITCH", Blockly.CSharp.ORDER_NONE) + "), " +
+    "C.Bool(" + Blockly.CSharp.valueToCode(block, "LOOP", Blockly.CSharp.ORDER_NONE);
   switch (block.getFieldValue("FIELD")) {
     case "Basic":
-      return "_c.SetSoundVPL(" +
-        "C.Int(" + Blockly.CSharp.valueToCode(block, "ID", Blockly.CSharp.ORDER_NONE) + "), " +
-        "C.Dbl(" + Blockly.CSharp.valueToCode(block, "VOLUME", Blockly.CSharp.ORDER_NONE) + "), " +
-        "C.Dbl(" + Blockly.CSharp.valueToCode(block, "PITCH", Blockly.CSharp.ORDER_NONE) + "), " +
-        "C.Bool(" + Blockly.CSharp.valueToCode(block, "LOOP", Blockly.CSharp.ORDER_NONE) + "));\n";
+      var head = "_c.SetSoundVPL(";
+      var end = "));\n";
+      break;
     case "Index":
-      return "_c.SetCarSoundVPL(" +
-        "C.Int(" + Blockly.CSharp.valueToCode(block, "ID", Blockly.CSharp.ORDER_NONE) + "), " +
-        "C.Dbl(" + Blockly.CSharp.valueToCode(block, "VOLUME", Blockly.CSharp.ORDER_NONE) + "), " +
-        "C.Dbl(" + Blockly.CSharp.valueToCode(block, "PITCH", Blockly.CSharp.ORDER_NONE) + "), " +
-        "C.Bool(" + Blockly.CSharp.valueToCode(block, "LOOP", Blockly.CSharp.ORDER_NONE) + "), " +
-        "C.Int(" + Blockly.CSharp.valueToCode(block, "CAR", Blockly.CSharp.ORDER_NONE) + "));\n";
-    /* case "List":
-      return "// _c.SetMultiCarSoundVPL" + "\n"; */
+      var head = "_c.SetCarSoundVPL(";
+      var end = "), C.Int(" + Blockly.CSharp.valueToCode(block, "CAR", Blockly.CSharp.ORDER_NONE) + "));\n";
+      break;
   }
+  return head + soundVPL + end;
 }
 Blockly.CSharp.obve_set_debug_message=function(block){
   return "_c.EData.DebugMessage = C.Str(" + Blockly.CSharp.valueToCode(block, "MESSAGE", Blockly.CSharp.ORDER_NONE) + ");\n";
@@ -450,28 +449,6 @@ Blockly.CSharp.bve_hat_perform_ai=function(block){
   return "public void PerformAI() {\n";
 }
 
-Blockly.CSharp.obve_ai_set_handle=function(block){
-  switch (block.getFieldValue("FIELD_SEL")) {
-    case "Brake":
-      var handleType = "BrakeNotch";
-      break;
-    case "Power":
-      var handleType = "PowerNotch";
-      break;
-    case "Reverser":
-      var handleType = "Reverser";
-      break;
-  }
-  switch (block.getFieldValue("TYPE")) {
-    case "Add":
-      var operator = " += 1";
-      break;
-    case "Subtract":
-      var operator = " -= 1";
-      break;
-  }
-  return "// _p1.Handles." + handleType + operator + ";\n";
-}
 Blockly.CSharp.obve_ai_updown_key=function(block){
   switch (block.getFieldValue("TYPE")) {
     case "Down":
@@ -492,11 +469,11 @@ Blockly.CSharp.obve_ai_response_time=function(block){
 
 Blockly.CSharp.bve_comment = function(block) { return ""; }
 Blockly.CSharp.bve_rawcode_statement = function(block) { return block.getFieldValue("CODE") + "\n"; }
-Blockly.CSharp.bve_rawcode_value = function(block) { return block.getFieldValue("CODE"); }
+Blockly.CSharp.bve_rawcode_value = function(block) { return [block.getFieldValue("CODE"), Blockly.CSharp.ORDER_ATOMIC]; }
 
-Blockly.CSharp.bve_variables_set_calculation = function(block) {
-  var argument = Blockly.CSharp.valueToCode(this, "VALUE", Blockly.CSharp.ORDER_ASSIGNMENT) || "null";
-  var varName = Blockly.CSharp.valueToCode(this, "VAR", Blockly.CSharp.ORDER_ASSIGNMENT) || "null";
+Blockly.CSharp.misc_variables_set_calculation = function(block) {
+  var argument = Blockly.CSharp.valueToCode(block, "VALUE", Blockly.CSharp.ORDER_ASSIGNMENT) || "null";
+  var varName = Blockly.CSharp.variableDB_.getName(block.getFieldValue('VAR'), Blockly.Variables.NAME_TYPE) || "null";
   switch (block.getFieldValue("TYPE")) {
     case "Set":
       var operator = " = ";
@@ -517,34 +494,34 @@ Blockly.CSharp.bve_variables_set_calculation = function(block) {
       var operator = " %= ";
       break;
   }
-  if (block.getFieldValue("CREMENT") != "Null") {
-    switch (block.getFieldValue("CREMENT")) {
-      case "PreIncrement":
-      case "PostIncrement":
-        var crement = "++";
-        break;
-      case "PreDecrement":
-      case "PostDecrement":
-        var crement = "--";
-        break;
-    }
-    switch (block.getFieldValue("CREMENT")) {
-      case "PreIncrement":
-      case "PreDecrement":
-        var valueOut = crement + argument;
-        break;
-      case "PostIncrement":
-      case "PostDecrement":
-        var valueOut = argument + crement;
-        break;
-    }
-  } else {
-    var valueOut = argument;
-  }
-  return varName + operator + valueOut + ";\n";
+  return varName + operator + argument + ";\n";
 }
-Blockly.CSharp.bve_variables_calcself = function(block) {
-  var varName = Blockly.CSharp.valueToCode(this, "VAR", Blockly.CSharp.ORDER_ASSIGNMENT) || "null";
+Blockly.CSharp.misc_variables_value_crement = function(block) {
+  var varName = Blockly.CSharp.variableDB_.getName(block.getFieldValue('VAR'), Blockly.Variables.NAME_TYPE) || "null";
+  switch (block.getFieldValue("CREMENT")) {
+    case "PreIncrement":
+    case "PostIncrement":
+      var crement = "++";
+      break;
+    case "PreDecrement":
+    case "PostDecrement":
+      var crement = "--";
+      break;
+  }
+  switch (block.getFieldValue("CREMENT")) {
+    case "PreIncrement":
+    case "PreDecrement":
+      var varOut = crement + varName;
+      break;
+    case "PostIncrement":
+    case "PostDecrement":
+      var varOut = varName + crement;
+      break;
+  }
+  return [varOut, Blockly.CSharp.ORDER_ATOMIC];
+}
+Blockly.CSharp.misc_variables_crement = function(block) {
+  var varName = Blockly.CSharp.variableDB_.getName(block.getFieldValue('VAR'), Blockly.Variables.NAME_TYPE) || "null";
   switch (block.getFieldValue("TYPE")) {
     case "Increment":
       var operator = " ++";
@@ -554,4 +531,68 @@ Blockly.CSharp.bve_variables_calcself = function(block) {
       break;
   }
   return varName + operator + ";\n";
+}
+
+Blockly.CSharp.misc_math_minmax = function(block) {
+  switch (block.getFieldValue("TYPE")) {
+    case "Mininum":
+      var type = "Min";
+      break;
+    case "Maxinum":
+      var type = "Max";
+      break;
+  }
+  var argument0 = Blockly.CSharp.valueToCode(block, "A", Blockly.CSharp.ORDER_COMMA) || "0.0";
+  var argument1 = Blockly.CSharp.valueToCode(block, "B", Blockly.CSharp.ORDER_COMMA) || "0.0";
+  var code = "Math." + type + "(C.Dbl(" + argument0 + "), C.Dbl(" + argument1 + "))";
+  return [code, Blockly.CSharp.ORDER_CONDITIONAL];
+}
+
+Blockly.CSharp.misc_logic_switch = function(block) {
+  var varName = Blockly.CSharp.valueToCode(block, "VAR", Blockly.CSharp.ORDER_FUNCTION_CALL) || "null";
+  return "switch (" + varName + ") {\n" + Blockly.CSharp.statementToCode(block, "STATEMENT") + "}\n";
+}
+Blockly.CSharp.misc_logic_switch_case = function(block) {
+  var argument = Blockly.CSharp.valueToCode(block, "VALUE", Blockly.CSharp.ORDER_COMMA) || "null";
+  var code = "case " + argument + ":\n" + Blockly.CSharp.statementToCode(block, "DO");
+  if (block.getFieldValue("BREAK") == "TRUE"){
+    return code + "break;\n";
+  } else {
+    return code;
+  }
+}
+Blockly.CSharp.misc_logic_switch_default = function(block) {
+  var code = "default:\n" + Blockly.CSharp.statementToCode(block, "DO");
+  if (block.getFieldValue("BREAK") == "TRUE"){
+    return code + "break;\n";
+  } else {
+    return code;
+  }
+}
+
+Blockly.CSharp.bve_config_block_load=function(block){
+  return "_f.LoadConfig(C.Str(" + Blockly.CSharp.valueToCode(block, "PATH", Blockly.CSharp.ORDER_NONE) + "));\n";
+}
+Blockly.CSharp.bve_config_block_save=function(block){
+  return "_f.SaveConfig(C.Str(" + Blockly.CSharp.valueToCode(block, "PATH", Blockly.CSharp.ORDER_NONE) + "));\n";
+}
+Blockly.CSharp.bve_get_config_block=function(block){
+  return ["_f.GetConfig(C.Str("
+    + Blockly.CSharp.valueToCode(block, "PART", Blockly.CSharp.ORDER_NONE) + "), C.Str(" 
+    + Blockly.CSharp.valueToCode(block, "KEY", Blockly.CSharp.ORDER_NONE) + "))", Blockly.CSharp.ORDER_ATOMIC];
+}
+Blockly.CSharp.bve_get_config_block_default=function(block){
+  return [
+    "_f.GetConfig(C.Str("
+    + Blockly.CSharp.valueToCode(block, "PART", Blockly.CSharp.ORDER_NONE) + "), C.Str(" 
+    + Blockly.CSharp.valueToCode(block, "KEY", Blockly.CSharp.ORDER_NONE) + "), ("
+    + Blockly.CSharp.valueToCode(block, "DEFAULT_VAL", Blockly.CSharp.ORDER_NONE) +"))",
+    Blockly.CSharp.ORDER_ATOMIC
+  ];
+}
+Blockly.CSharp.bve_set_config_block=function(block){
+  return "_f.SetConfig(C.Str("
+    + Blockly.CSharp.valueToCode(block, "PART", Blockly.CSharp.ORDER_NONE) + "), C.Str(" 
+    + Blockly.CSharp.valueToCode(block, "KEY", Blockly.CSharp.ORDER_NONE) + "), ("
+    + (Blockly.CSharp.valueToCode(block, "VALUE", Blockly.CSharp.ORDER_NONE) || "\"\"") + "));\n";
 }
